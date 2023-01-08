@@ -1,3 +1,5 @@
+#define DEBUG true
+
 // Digital Inputs
 #define BTN_START 2
 #define BTN_STOP 3
@@ -40,7 +42,11 @@ int currentPhase = PHASE_F1;
 
 int getDelayInMs(int pinNumber) {
   int value = analogRead(pinNumber);
-  return POT_MAX_MS * (double)value / 1023;
+  int delay = POT_MAX_MS * (double)value / 1023;
+  if (delay < 1000) {
+    return 1000;
+  }
+  return delay;
 }
 
 int getDelayInMsByPhase() {
@@ -63,7 +69,9 @@ int getDelayInMsByPhase() {
 }
 
 void setup() {
+  #if DEBUG
   Serial.begin(9600);
+  #endif
 
   pinMode(BTN_START, INPUT);
   pinMode(BTN_STOP, INPUT);
@@ -158,10 +166,12 @@ void loop() {
           break;
       }
     }
+    #if DEBUG
     Serial.print("phase: ");
     Serial.println(currentPhase);
     Serial.print("delay: ");
     Serial.println(currentDelay);
+    #endif
     currentDelay += BASE_DELAY_MS;
   }
   delay(BASE_DELAY_MS);
