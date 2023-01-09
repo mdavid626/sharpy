@@ -3,6 +3,8 @@ Arduino Nano micro-controller with two relays to control a sharpening machine's 
 
 ![Box Design](https://raw.githubusercontent.com/mdavid626/sharpy/main/docs/box-design.png)
 
+![Schematic](https://raw.githubusercontent.com/mdavid626/sharpy/main/docs/schematic.png)
+
 ## Operation
 First the device needs to be switched on with the `ON/OFF` switch. Then the cycle is ready to be started with the `START` button. It can be stopped any time using the `STOP` button.
 
