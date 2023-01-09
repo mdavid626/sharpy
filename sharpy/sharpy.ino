@@ -1,4 +1,4 @@
-#define DEBUG false
+#define DEBUG true
 
 // Digital Inputs
 #define BTN_START 2
