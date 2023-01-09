@@ -1,7 +1,7 @@
 # Sharpy
 Arduino Nano microcontroller with two relays to control a sharpening machine's operation.
 
-![Box Design](https://raw.githubusercontent.com/mdavid626/sharpy/main/docs/box-design.png?v=1)
+![Box Design](https://raw.githubusercontent.com/mdavid626/sharpy/main/docs/box-design.png)
 
 ## Operation
 First the device needs to be switched on with the `ON/OFF` switch. Then the cycle is ready to be started with the `START` button. It can be stopped any time using the `STOP` button.
