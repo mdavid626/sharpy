@@ -1,4 +1,4 @@
-#define DEBUG true
+#define DEBUG false
 
 // Digital Inputs
 #define BTN_START 2
@@ -14,7 +14,7 @@
 #define RELAY1 4
 #define RELAY2 5
 #define LED_MAIN 6
-#define LED_RUN 7
+#define LED_STOP 7
 #define LED_F1 8
 #define LED_P1 9
 #define LED_F2_1 10
@@ -36,7 +36,11 @@
 #define PHASE_P2_2 6
 #define PHASE_P2_3 7
 
+#if DEBUG
 bool isOn = true;
+#else
+bool isOn = false;
+#endif
 int currentDelay = 0;
 int currentPhase = PHASE_F1;
 
@@ -78,7 +82,7 @@ void setup() {
   pinMode(RELAY1, OUTPUT);
   pinMode(RELAY2, OUTPUT);
   pinMode(LED_MAIN, OUTPUT);
-  pinMode(LED_RUN, OUTPUT);
+  pinMode(LED_STOP, OUTPUT);
   pinMode(LED_F1, OUTPUT);
   pinMode(LED_P1, OUTPUT);
   pinMode(LED_F2_1, OUTPUT);
@@ -87,20 +91,25 @@ void setup() {
   pinMode(LED_P2, OUTPUT);
 
   digitalWrite(LED_MAIN, HIGH);
+  if (!isOn) {
+    digitalWrite(LED_STOP, HIGH);
+  }
 }
 
 void loop() {
-  if (digitalRead(BTN_START) == HIGH) {
+  int btnStartValue = digitalRead(BTN_START);
+  int btnStopValue = digitalRead(BTN_STOP);
+  if (btnStartValue == HIGH && btnStopValue != HIGH) {
     isOn = true;
     currentDelay = 0;
     currentPhase = PHASE_F1;
-    digitalWrite(LED_RUN, HIGH);
+    digitalWrite(LED_STOP, LOW);
     digitalWrite(LED_F1, HIGH);
     digitalWrite(RELAY1, HIGH);
   }
-  if (digitalRead(BTN_STOP) == HIGH) {
+  if (btnStopValue == HIGH) {
     isOn = false;
-    digitalWrite(LED_RUN, LOW);
+    digitalWrite(LED_STOP, HIGH);
     digitalWrite(RELAY1, LOW);
     digitalWrite(RELAY2, LOW);
     digitalWrite(LED_F1, LOW);
