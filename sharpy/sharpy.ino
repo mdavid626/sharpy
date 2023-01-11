@@ -115,7 +115,6 @@ void loop() {
     digitalWrite(LED_F1, HIGH);
     digitalWrite(RELAY1, HIGH);
     digitalWrite(RELAY2, LOW);
-    digitalWrite(LED_F1, LOW);
     digitalWrite(LED_P1, LOW);
     digitalWrite(LED_F2_1, LOW);
     digitalWrite(LED_F2_2, LOW);
