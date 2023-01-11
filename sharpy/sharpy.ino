@@ -1,14 +1,14 @@
-#define DEBUG true
+#define DEBUG false
 
 // Digital Inputs
 #define BTN_START 2
 #define BTN_STOP 3
 
 // Analog Inputs
-#define POT_F1 0
-#define POT_P1 1
-#define POT_F2 2
-#define POT_P2 3
+#define POT_F1 A0
+#define POT_P1 A1
+#define POT_F2 A2
+#define POT_P2 A4
 
 // Digital Outputs
 #define RELAY1 4
@@ -89,6 +89,14 @@ void setup() {
   pinMode(LED_F2_2, OUTPUT);
   pinMode(LED_F2_3, OUTPUT);
   pinMode(LED_P2, OUTPUT);
+  pinMode(POT_F1, INPUT);
+  pinMode(POT_P1, INPUT);
+  pinMode(POT_F2, INPUT);
+  pinMode(POT_P2, INPUT);
+  digitalWrite(POT_F1, LOW);
+  digitalWrite(POT_P1, LOW);
+  digitalWrite(POT_F2, LOW);
+  digitalWrite(POT_P2, LOW);
 
   digitalWrite(LED_MAIN, HIGH);
   if (!isOn) {
@@ -107,6 +115,12 @@ void loop() {
     digitalWrite(LED_F1, HIGH);
     digitalWrite(RELAY1, HIGH);
     digitalWrite(RELAY2, LOW);
+    digitalWrite(LED_F1, LOW);
+    digitalWrite(LED_P1, LOW);
+    digitalWrite(LED_F2_1, LOW);
+    digitalWrite(LED_F2_2, LOW);
+    digitalWrite(LED_F2_3, LOW);
+    digitalWrite(LED_P2, LOW);
   }
   if (btnStopValue == HIGH) {
     isOn = false;
