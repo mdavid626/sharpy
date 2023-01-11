@@ -106,6 +106,7 @@ void loop() {
     digitalWrite(LED_STOP, LOW);
     digitalWrite(LED_F1, HIGH);
     digitalWrite(RELAY1, HIGH);
+    digitalWrite(RELAY2, LOW);
   }
   if (btnStopValue == HIGH) {
     isOn = false;
