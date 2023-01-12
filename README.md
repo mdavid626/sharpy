@@ -18,4 +18,4 @@ During `F1` relay `R1` is turned on. During `F2` relay `R2` correspondingly. `P1
 
 Each step in the cycle is indicated with an LED.
 
-![Operation of Sharpy](https://www.youtube.com/watch?v=Y7pW9tye7fA)
+[![Operation of Sharpy](https://img.youtube.com/vi/Y7pW9tye7fA/0.jpg)](https://www.youtube.com/watch?v=Y7pW9tye7fA)
