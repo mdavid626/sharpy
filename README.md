@@ -17,3 +17,5 @@ During `F1` relay `R1` is turned on. During `F2` relay `R2` correspondingly. `P1
 `F1`, `P1`, `F2` and `P2` duration can be controlled using the potentiometers. The range is from `0-10s`. The interval `0-1` is considered as `1`.
 
 Each step in the cycle is indicated with an LED.
+
+![Operation of Sharpy](https://www.youtube.com/watch?v=Y7pW9tye7fA)
