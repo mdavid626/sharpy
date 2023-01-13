@@ -23,7 +23,8 @@
 #define LED_P2 13
 
 // Delays
-#define POT_MAX_MS 10000
+#define POT_MAX_MS 3000
+#define POT_MIN_MS 100
 #define BASE_DELAY_MS 50
 
 // Phases
@@ -47,8 +48,8 @@ int currentPhase = PHASE_F1;
 int getDelayInMs(int pinNumber) {
   int value = analogRead(pinNumber);
   int delay = POT_MAX_MS * (double)value / 1023;
-  if (delay < 1000) {
-    return 1000;
+  if (delay < POT_MIN_MS) {
+    return POT_MIN_MS;
   }
   return delay;
 }
